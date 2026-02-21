@@ -1,7 +1,7 @@
 import requests
 import pandas
 import pendulum 
-#from airflow import DAG
+from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 def get_load_raw_from_api(**context):
@@ -33,7 +33,7 @@ default_args = {
 }
 
 dag = DAG(
-    dag_id='load_from_api_to_s3_weather',
+    dag_id='example_load_from_api_to_s3_weather',
     default_args=default_args,
     schedule='@monthly',
     catchup=True,
